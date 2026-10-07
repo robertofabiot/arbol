@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El madroño del talento humano</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#fff7ee;--panel:rgba(6,34,40,.66);box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden}
+body{background:linear-gradient(180deg,#082f3a 0%,#0f5c63 50%,#1f8f7a 78%,#f08a4b 100%);font:500 clamp(11px,2.2vh,16px)/1.4 Nunito,system-ui,sans-serif;color:var(--ink)}
+svg.st{position:fixed;left:env(safe-area-inset-left,0px);top:0;height:100%;width:42%}
+.sl{display:none;position:fixed;left:calc(42% + 1vw);right:calc(2.5vw + env(safe-area-inset-right,0px));top:3vh;bottom:64px;overflow:auto;flex-direction:column;justify-content:center}
+.sl.act{display:flex}
+h2{font:800 clamp(20px,6.4vh,46px)/1.05 'Bricolage Grotesque',Nunito,sans-serif;margin:0 0 1vh;text-shadow:0 2px 10px #0006;display:inline;align-self:flex-start;background:linear-gradient(transparent 64%,var(--c) 64% 90%,transparent 90%);animation:in .6s both}
+.sub{margin:1.4vh 0 1.8vh;opacity:.92;animation:in .6s .1s both}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:1.3vh 1vw}.g.one{grid-template-columns:1fr}
+.g .it:last-child:nth-child(odd){grid-column:1/-1}
+.it{background:var(--panel);border-left:5px solid var(--k);border-radius:12px;padding:1.1vh 1vw;backdrop-filter:blur(3px);animation:in .55s both;animation-delay:calc(.2s + var(--i)*.09s)}
+.it b{display:flex;align-items:center;gap:8px;font:800 clamp(12px,2.7vh,18px)/1.15 'Bricolage Grotesque',Nunito,sans-serif;margin-bottom:.4vh;color:var(--k)}
+.it b i{font-style:normal;flex:none;width:1.6em;height:1.6em;border-radius:50%;background:var(--k);color:#2b1608;display:grid;place-items:center;font-size:.8em}
+.it a{color:#ffd23f;word-break:break-all}
+@keyframes in{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+nav{position:fixed;right:calc(2.5vw + env(safe-area-inset-right,0px));bottom:calc(1.5vh + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:12px}
+nav button{width:40px;height:40px;border:0;border-radius:50%;font:800 22px/1 Nunito;background:#ffd23f;color:#2b1608}
+nav button:disabled{opacity:.3}
+.dots{display:flex;gap:6px}.dots i{width:8px;height:8px;border-radius:50%;background:#fff5}.dots i.on{background:#ff5c8a;transform:scale(1.5)}
+.d{fill:none;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s ease}.d.on{stroke-dashoffset:0}
+.p{opacity:0;transform:scale(.2);transform-box:fill-box;transform-origin:center;transition:.7s cubic-bezier(.3,1.6,.5,1)}.p.on{opacity:1;transform:none}
+.l0{fill:#22a553}.l1{fill:#0f7a43}.l2{fill:#5fd16a}
+@keyframes sw{0%,100%{transform:rotate(-1.3deg)}50%{transform:rotate(1.3deg)}}
+@keyframes fl{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+@keyframes pt{0%{opacity:0;transform:translate(0,0) rotate(0)}15%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(400deg)}}
+@keyframes cl{from{transform:translateX(-90px)}to{transform:translateX(140px)}}
+#S{transform-box:view-box;transform-origin:200px 590px;animation:sw 7s ease-in-out infinite}
+.w{transform-box:view-box;animation:fl 3.4s ease-in-out infinite}
+.pt{transform-box:fill-box;transform-origin:center;animation-name:pt;animation-iteration-count:infinite;animation-timing-function:linear}
+.cl{animation:cl 40s ease-in-out infinite alternate}
+#sun{transition:transform 1.6s ease}
+#cam{transition:transform 1.5s cubic-bezier(.6,0,.2,1)}
+nav{display:none}body.on nav{display:flex}
+#intro{position:fixed;inset:0;z-index:20;display:grid;place-content:center;justify-items:center;text-align:center;padding:5vw;background:radial-gradient(circle at 50% 40%,rgba(8,47,58,.5),rgba(8,47,58,.92));transition:opacity .9s}
+#intro.x{opacity:0;pointer-events:none}
+#intro h1{font:800 clamp(30px,10vh,72px)/1.05 'Bricolage Grotesque',sans-serif;margin:0 0 2vh;animation:in .9s both}
+#intro p{font-size:clamp(15px,3.4vh,24px);max-width:22em;margin:0 0 4vh;animation:in .9s .2s both}
+.bt{font:800 clamp(15px,3vh,20px) Nunito;border:0;border-radius:99px;padding:1.4vh 3vw;background:#ffd23f;color:#2b1608;box-shadow:0 6px 0 #c58f00;cursor:pointer}
+#intro .bt{animation:in .9s .4s both,bob 2s 1.3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.fr{position:absolute;border-radius:50%;animation:bob 3s ease-in-out infinite}
+.sim{align-self:flex-start;margin-top:1.8vh;font:800 clamp(12px,2.6vh,16px) Nunito;border:0;border-radius:99px;padding:1.1vh 1.6vw;background:#ff5c8a;color:#fff;box-shadow:0 4px 0 #b32a58;cursor:pointer;animation:in .6s .9s both}
+.sim.big{background:#ffd23f;color:#2b1608;box-shadow:0 4px 0 #c58f00}
+#md{position:fixed;inset:0;z-index:30;display:none;place-items:center;background:rgba(4,20,26,.9)}#md.o{display:grid}
+#mb{position:relative;width:min(760px,94vw);max-height:92vh;overflow:auto;background:#0d3b44;border:2px solid #ffd23f55;border-radius:20px;padding:18px 20px}
+#mb h3{font:800 clamp(17px,3.4vh,24px) 'Bricolage Grotesque',sans-serif;margin:0 40px 8px 0}#mb h3 em{font-style:normal;float:right;color:#ffd23f}
+.x{position:absolute;right:12px;top:10px;width:34px;height:34px;border:0;border-radius:50%;background:#fff3;color:#fff;font-size:16px;cursor:pointer}
+.sp{display:flex;gap:10px;align-items:flex-start;background:#ffffff14;border-radius:12px;padding:10px 12px;margin:8px 0;animation:in .4s both}
+.sp>:first-child{font-size:1.6em;line-height:1}.sp.q{display:block}
+.op{display:block;width:100%;text-align:left;margin:6px 0 0;padding:9px 12px;border:2px solid #fff4;border-radius:10px;background:transparent;color:#fff;font:700 inherit Nunito;cursor:pointer}
+.op.ok{background:#2ecc71;color:#06260f;border-color:#2ecc71}.op.no{background:#ff5e4d;border-color:#ff5e4d}
+.pr{height:6px;background:#fff2;border-radius:6px;margin-bottom:6px}.pr i{display:block;height:100%;background:#ff5c8a;border-radius:6px;transition:width .4s}
+.fin{font-weight:800;color:#7ee081;margin:10px 0 4px}#mb .bt{margin-top:10px;box-shadow:0 4px 0 #c58f00}
+.sn circle{transition:r .3s}.sn{cursor:pointer}
+@media (max-aspect-ratio:1/1){
+svg.st{width:100%;height:34vh}
+.sl{left:4vw;right:4vw;top:34vh;bottom:60px}
+.g{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+
+<svg class="st" viewBox="0 0 400 620" preserveAspectRatio="xMidYMax meet" aria-label="Madroño que crece y se mece con cada diapositiva">
+<defs>
+<path id="L" d="M-14 0Q0 -8 14 0Q0 8 -14 0Z"/>
+<g id="F"><g fill="#fff" stroke="#bfe3cc" stroke-width=".8"><ellipse cx="0" cy="-6" rx="3.4" ry="6"/><ellipse cx="0" cy="-6" rx="3.4" ry="6" transform="rotate(72)"/><ellipse cx="0" cy="-6" rx="3.4" ry="6" transform="rotate(144)"/><ellipse cx="0" cy="-6" rx="3.4" ry="6" transform="rotate(216)"/><ellipse cx="0" cy="-6" rx="3.4" ry="6" transform="rotate(288)"/></g><circle r="2.6" fill="#ffd23f"/></g>
+<g id="Fr"><g transform="scale(1.3)"><ellipse rx="6.5" ry="10" fill="currentColor"/><ellipse cx="-2" cy="-3" rx="2" ry="4" fill="#fff" opacity=".3"/><path d="M0 -10V10M-6 -3Q0 0 6 -3" stroke="#0004" stroke-width="1" fill="none"/></g></g>
+</defs>
+<filter id="cf" x="-30%" y="-80%" width="160%" height="260%"><feTurbulence type="fractalNoise" baseFrequency=".02 .035" numOctaves="4" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="34"/><feGaussianBlur stdDeviation="3.5"/></filter>
+<g class="cl" style="animation-duration:48s"><g filter="url(#cf)"><ellipse cx="90" cy="84" rx="62" ry="12" fill="#9fbccf" opacity=".6"/><ellipse cx="68" cy="68" rx="30" ry="17" fill="#fff" opacity=".85"/><ellipse cx="104" cy="60" rx="38" ry="23" fill="#fff" opacity=".9"/><ellipse cx="136" cy="74" rx="28" ry="14" fill="#fff" opacity=".8"/></g></g>
+<g class="cl" style="animation-duration:70s;animation-delay:-20s"><g filter="url(#cf)"><ellipse cx="270" cy="156" rx="70" ry="12" fill="#9fbccf" opacity=".5"/><ellipse cx="240" cy="142" rx="34" ry="18" fill="#ffe9e2" opacity=".85"/><ellipse cx="282" cy="132" rx="42" ry="24" fill="#fff" opacity=".9"/><ellipse cx="316" cy="148" rx="30" ry="14" fill="#ffe9e2" opacity=".8"/></g></g>
+<g class="cl" style="animation-duration:36s;animation-delay:-9s"><g filter="url(#cf)"><ellipse cx="160" cy="236" rx="40" ry="8" fill="#9fbccf" opacity=".45"/><ellipse cx="150" cy="226" rx="22" ry="12" fill="#fff" opacity=".7"/><ellipse cx="176" cy="222" rx="26" ry="15" fill="#fff" opacity=".75"/></g></g>
+<g id="sun"><circle cx="335" cy="545" r="50" fill="#ffd23f" opacity=".25"/><circle cx="335" cy="545" r="28" fill="#ffd23f"/></g>
+<g id="cam"><path d="M-300 592Q-100 560 200 585T700 572V800H-300Z" fill="#14803f"/>
+<path d="M-300 604Q0 585 230 600T700 596V800H-300Z" fill="#0c5e33"/>
+<g id="S"><g id="T">
+<path class="d" data-s="1" pathLength="1" stroke="#a38c6e" stroke-width="20" d="M200 590C196 560 204 540 200 505"/>
+<path class="d" data-s="1" pathLength="1" stroke="#b9a283" stroke-width="5" d="M200 540Q185 535 165 525M200 552Q220 546 240 536"/>
+<path class="d" data-s="2" pathLength="1" stroke="#ae9777" stroke-width="15" d="M200 505C196 470 206 440 200 400"/>
+<path class="d" data-s="3" pathLength="1" stroke="#b9a283" stroke-width="11" d="M200 400C196 370 204 340 200 300"/>
+<path class="d" data-s="3" pathLength="1" stroke="#c9b698" stroke-width="7" d="M200 450C170 440 130 440 90 410M200 430C235 420 275 420 315 385M200 360C170 345 140 335 110 300M200 340C235 325 265 315 295 275"/>
+<path class="d" data-s="5" pathLength="1" stroke="#c9b698" stroke-width="8" d="M200 300C198 270 204 250 200 225"/>
+<path class="d" data-s="5" pathLength="1" stroke="#c9b698" stroke-width="5" d="M200 235Q170 225 140 192M200 235Q230 225 260 192M200 225Q180 190 165 140M200 225Q222 190 235 140M200 225Q206 150 200 92"/>
+<path class="d" data-s="5" pathLength="1" stroke="#ffd23f" stroke-width="2.5" d="M90 436Q200 490 315 410Q205 350 110 322Q200 270 295 296"/>
+</g></g></g></svg>
+
+<div id="deck"></div>
+<div id="intro"><i class="fr" style="left:12%;top:20%;width:46px;height:46px;background:#fff"></i><i class="fr" style="right:14%;top:30%;width:34px;height:34px;background:#fff4d6;animation-delay:-1s"></i><i class="fr" style="left:22%;bottom:18%;width:28px;height:28px;background:#ffe08a;animation-delay:-2s"></i>
+<h1>Hola 👋</h1><p>¿Quieres conocer acerca del proceso de reclutamiento?</p><button class="bt" id="start">Iniciar</button><small style="position:absolute;bottom:3vh;left:0;right:0;opacity:.85;font-size:clamp(10px,2.1vh,14px);padding:0 4vw">Hecho por Melissa, Camila, Francisco, Katherine y Amalia<br>Clase de Gestión del Talento Humano · Docente: Tania Mora</small></div>
+<div id="md"><div id="mb"></div></div>
+<nav><button id="pv" aria-label="Anterior">‹</button><div class="dots" id="dots"></div><button id="nx" aria-label="Siguiente">›</button></nav>
+
+<script>
+const D=[
+{h:'Gestión del talento humano',p:'El madroño recién cosechado: cinco conceptos clave.',st:1,it:[['Atracción','Lograr que el talento quiera llegar: marca empleadora y propuesta de valor.'],['Reclutamiento','Convocar candidatos calificados por fuentes internas y externas.'],['Selección','Elegir a quien mejor encaja con el cargo y la cultura.'],['Onboarding','Integrar al nuevo colaborador a su rol, su equipo y la cultura.'],['Inducción','Orientación inicial sobre la empresa, el puesto y las normas.']]},
+{h:'1. Ciclo de capacitación',p:'Concepto e importancia: la capacitación como proceso estratégico.',st:2,it:[['Qué es','Proceso con el que los colaboradores desarrollan conocimientos, habilidades y actitudes para desempeñar mejor sus funciones.'],['Más que cursos','Se identifica qué necesita mejorar una persona o grupo y, a partir de eso, se planifica la capacitación.'],['Proceso continuo','Cada etapa se relaciona con la siguiente y la evaluación revela nuevas necesidades: el proceso vuelve a comenzar.'],['Herramienta estratégica','Tiene un propósito definido, responde a necesidades reales y contribuye a los objetivos de la organización.']]},
+{h:'Las 4 fases del ciclo',p:'Según Chiavenato, Administración de Recursos Humanos.',st:4,n:1,it:[['Detección de necesidades (DNC)','Analiza la organización, los recursos humanos y las tareas. Responde qué, quién, por qué y cuándo, y evita capacitar por capacitar.'],['Diseño del programa','Define objetivos, contenidos, participantes, métodos, recursos, tiempo y lugar: convierte la necesidad en un plan concreto.'],['Ejecución o implementación','Combina lo pedagógico, administrativo y técnico, con instructores internos o externos, para que lo aprendido pase al puesto.'],['Evaluación de resultados','Comprueba si hubo aprendizaje y cambios en el desempeño; usa Kirkpatrick y revela nuevas necesidades.']]},
+{h:'2. Los 4 niveles de Kirkpatrick',p:'Creado por Don Kirkpatrick en los años 50. Clave: el fin es el principio y el ROE (retorno sobre expectativas) es el indicador final de valor.',st:5,n:1,it:[['Reacción','Satisfacción inmediata: ¿fue interesante, útil y relacionada con su trabajo? Incluye materiales, instalaciones y facilitador.'],['Aprendizaje','Conocimientos, habilidades, actitudes, confianza y compromiso adquiridos; se mide con pre-test y post-test.'],['Comportamiento','Transferencia al puesto: se aplica lo aprendido. Se observa con supervisores, evaluaciones y encuestas de seguimiento.'],['Resultados','Aporte a los objetivos de la organización: productividad, costos, ventas, errores y satisfacción del cliente.']]},
+{h:'Evaluación según Chiavenato',p:'Etapa final del proceso: del diagnóstico (DNC) a la verificación de resultados en tres niveles.',st:5,it:[['Nivel organizacional','Rentabilidad, productividad, competitividad, imagen y clima organizacional.'],['Nivel de recursos humanos','Menos rotación y ausentismo; más motivación, compromiso, moral y sentido de pertenencia.'],['Nivel de las tareas','Más velocidad y calidad, menos errores, reprocesos, desperdicio y accidentes laborales.'],['Cómo comprobarlo','Exámenes antes y después del curso, supervisión directa y evaluación del desempeño.']]},
+{h:'3. Tipos de capacitación',p:'Proceso educativo sistemático y de corto plazo (Chiavenato, 2007), clasificado con tres criterios.',st:6,it:[['Uso: orientadas al contenido','Transmiten conocimientos: conferencias, lecturas guiadas, instrucción programada.'],['Uso: orientadas al proceso','Cambian actitudes y habilidades sociales: role-playing, entrenamiento de la sensibilidad, grupos de discusión.'],['Uso: técnicas mixtas','Mezclan información y práctica: estudio de casos, juegos gerenciales, simulaciones, talleres.'],['Según el tiempo','Antes del ingreso (inducción o integración) y después del ingreso (formación en servicio).'],['Según el lugar','En el puesto (on the job): se aprende mientras se trabaja. Fuera del puesto (off the job): aulas, seminarios, entornos virtuales.']]},
+{h:'Capacitación en línea (e-learning)',p:'Uso de tecnologías de red para diseñar, entregar y gestionar el aprendizaje, sin barreras de espacio ni tiempo.',st:6,it:[['Sincrónica','Interacción en tiempo real: videoconferencias, webinars y chats.'],['Asincrónica','Contenidos en una plataforma (LMS) para avanzar a tu ritmo y en tu horario.'],['B-learning','Aprendizaje híbrido: aula presencial más recursos y evaluaciones en plataforma.'],['Ventajas','Menos costos de viajes y salas, flexibilidad y alcance global, contenido estandarizado y seguimiento del progreso.'],['Desventajas','Sin contacto presencial, distracciones que exigen autodisciplina y altos costos iniciales de desarrollo.']]},
+{h:'4. Desarrollo estratégico de personal',p:'De los movimientos puntuales al largo plazo.',st:7,it:[['Promoción','Movimiento a un puesto de mayor nivel o responsabilidad; se decide por desempeño, conocimientos, experiencia, capacitación y capacidad.'],['Traslado','Cambio de puesto, área o departamento sin ascenso necesario: cubre vacantes, reorganiza o aprovecha habilidades.'],['Plan de carrera','Situación actual, oportunidades, acciones de desarrollo y seguimiento. El colaborador participa; la organización da condiciones.'],['Plan de sucesión','Identifica puestos clave y personas con potencial, para que la salida de alguien no afecte a la organización.'],['Mapa de talento','Organiza desempeño, competencias y potencial; se vincula con el banco de talentos de Chiavenato.'],['Impacto','Lo puntual responde al presente y la carrera y sucesión al futuro: mejoran retención y clima si los criterios son claros y transparentes.']]},
+{h:'5. Tendencias de la capacitación',p:'Del evento puntual a una práctica continua.',st:7,it:[['Microlearning','Cápsulas de 5 a 10 minutos que refuerzan sin frenar la operación.'],['Gamificación','Rankings, desafíos e insignias que suben el compromiso.'],['Aprendizaje social','Mentorías, comunidades y proyectos colaborativos.'],['IA adaptativa','Rutas personalizadas según progreso, fortalezas y dificultades.'],['Aprendizaje inmersivo','VR, AR y realidad mixta para practicar sin riesgo.']]},
+{h:'Educación corporativa',p:'Aprendizaje atado a la visión y los objetivos del negocio.',st:7,it:[['Concepto','Sistema estructurado que vincula el aprendizaje con la visión, la cultura y los objetivos del negocio.'],['Evolución','De la etapa reactiva (cursos aislados) a la estratégica (ecosistemas continuos).'],['Alcance','Formación continua, reskilling y upskilling, líderes, gestión del cambio y clima.'],['Universidad corporativa','Plataforma que gestiona y difunde el conocimiento clave para las metas del negocio.'],['Frente a la tradicional','Enfoque estratégico y de largo plazo, no cursos reactivos para tareas puntuales.'],['Ventaja competitiva','La formación deja de ser gasto y pasa a ser inversión que impulsa el crecimiento.']]},
+{h:'Las semillas: referencias',p:'',st:7,it:[['Chiavenato','Chiavenato, I. (2000). Administración de recursos humanos (5.ª ed.). McGraw-Hill Interamericana. Chiavenato (2007).'],['Capacitación y evaluación','<a href="https://www.kirkpatrickpartners.com/wp-content/uploads/2024/04/el-modelo-kirkpatrick-como-mejorar-la-capacitacion-creando-valorrh.pdf">Kirkpatrick Partners (s. f.), El modelo Kirkpatrick</a> · <a href="https://repositorio.scalahed.com/recursos/files/r171r/w27554w/CapacitacionyDesarrollodelTalentoHumano_Ant_B2_C.pdf">Scala Learning, Capacitación y desarrollo del talento humano</a>'],['Modalidades','Alles (2006); Dolan et al. (2007); Universidad Insurgentes (s. f.); <a href="https://www.ispring.es/blog/what-is-elearning/amp">iSpring (2021)</a>'],['Tendencias','Cursalab (2024), <a href="https://cursalab.io/blog/7-tendencias-de-capacitacion-en-el-2025/">7 tendencias de capacitación en el 2025</a>; Red de RRHH (2026), <a href="https://redderrhh.com/5-tendencias-que-estan-redefiniendo-la-capacitacion-en-2026/">5 tendencias que redefinen la capacitación</a>'],['Educación corporativa','CognosOnline, <a href="https://cognosonline.com/universidad-corporativa/">Universidad corporativa</a>; isEazy, <a href="https://www.iseazy.com/es/glosario/educacion-corporativa/">Educación corporativa</a>']]}
+,{h:'',p:'',st:7,it:[]}
+];
+const C=['#ff5e4d','#ffa13d','#ff6b9a','#ffd23f','#7ee081'];
+const deck=document.getElementById('deck'),dots=document.getElementById('dots');
+D.forEach((d,i)=>{const s=document.createElement('section');s.className='sl';s.style.setProperty('--c',C[i%5]);
+s.innerHTML=`<h2>${d.h}</h2><p class="sub">${d.p}</p><div class="g ${d.it.length<4?'one':''}">`+d.it.map((t,j)=>`<div class="it" style="--k:${C[j%5]};--i:${j}"><b>${d.n?`<i>${j+1}</i>`:''}${t[0]}</b><span>${t[1]}</span></div>`).join('')+'</div>'+(i<10?`<button class="sim" onclick="sim(${i})">▶ Simular esta etapa</button>`:i>10?'':`<button class="sim big" onclick="mapa()">¿Quieres ver cómo se vería el reclutamiento y la capacitación?</button>`);
+deck.appendChild(s);dots.appendChild(document.createElement('i'))});
+deck.lastChild.style.setProperty('--c','#ff5c8a');
+deck.lastChild.innerHTML=`<h2>Gracias por recorrer el madroño</h2><blockquote style="margin:2.4vh 0;padding:0 0 0 1.2vw;border-left:5px solid #ffd23f;font:italic 600 clamp(15px,3.6vh,26px)/1.35 'Bricolage Grotesque',Nunito,sans-serif;animation:in .7s .2s both">“Como el madroño, árbol nacional de Nicaragua, el talento echa raíces en la tierra que lo acoge, resiste todas las estaciones y florece cuando alguien se toma el tiempo de cuidarlo.”</blockquote><div class="it" style="--k:#ffd23f;--i:2"><b>Hecho por Melissa, Camila, Francisco, Katherine y Amalia</b><span>Clase de Gestión del Talento Humano · Docente: Tania Mora</span></div>`;
+const T=document.getElementById('T'),NS='http://www.w3.org/2000/svg';
+let seed=7;const R=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const add=(s,h,ox,oy)=>{const g=document.createElementNS(NS,'g');g.setAttribute('class','p');g.dataset.s=s;
+g.innerHTML=ox===undefined?h:`<g class="w" style="transform-origin:${ox}px ${oy}px;animation-delay:-${(R()*4).toFixed(1)}s;animation-duration:${(2.6+R()*2).toFixed(1)}s">${h}</g>`;T.appendChild(g)};
+const lf=(x,y,n,s,sp)=>{let h='';for(let i=0;i<n;i++){const a=R()*6.28,d=R()*sp;h+=`<use href="#L" class="l${i%3}" transform="translate(${x+Math.cos(a)*d} ${y+Math.sin(a)*d}) rotate(${R()*360})"/>`}add(s,h,x,y)};
+const fru=(x,y,s,c)=>add(s,`<use href="#Fr" x="${x}" y="${y}" style="color:${c}"/>`,x,y-14);
+const flw=(x,y,s)=>add(s,[[-9,6,-25],[0,12,0],[9,6,25]].map(([dx,dy,r])=>`<path d="M${x} ${y}L${x+dx} ${y+dy}" stroke="#8f7a5f" stroke-width="1.5"/><use href="#F" transform="translate(${x+dx} ${y+dy}) rotate(${r})"/>`).join(''),x,y);
+const bdg=(x,y,s,n,c)=>add(s,`<circle cx="${x}" cy="${y}" r="11" fill="${c}" stroke="#fff" stroke-width="2"/><text x="${x}" y="${y+4}" text-anchor="middle" font-size="12" font-weight="800" fill="#2b1608">${n}</text>`);
+const FC=['#c9772b','#e0a030','#a85a24','#d98c1f','#b5651d'];
+lf(165,525,9,1,22);lf(235,535,9,1,22);lf(200,498,6,1,16);
+[[172,518],[230,526],[156,546],[246,554],[200,486]].forEach((p,i)=>fru(p[0],p[1],1,FC[i]));
+lf(200,455,8,2,24);lf(200,420,6,2,22);
+const FL=[[90,414],[315,389],[110,304],[295,279]];
+FL.forEach(p=>lf(p[0],p[1]-4,10,3,28));lf(200,330,6,3,22);
+FL.forEach(p=>flw(p[0],p[1],4));
+FL.forEach((p,i)=>bdg(p[0],p[1]-26,4,i+1,'#ff5c8a'));
+let pe='';for(let i=0;i<16;i++)pe+=`<ellipse class="pt" cx="${(90+R()*230)|0}" cy="${(250+R()*170)|0}" rx="3.4" ry="1.8" fill="${i%2?'#f3fbf0':'#fff'}" style="--dx:${(-40+R()*130)|0}px;--dy:${(120+R()*110)|0}px;animation-delay:-${(R()*8).toFixed(1)}s;animation-duration:${(5+R()*4).toFixed(1)}s"/>`;
+add(4,pe);
+const TP=[[140,192],[260,192],[165,140],[235,140],[200,88]];
+TP.forEach(p=>lf(p[0],p[1],8,5,20));lf(200,215,5,5,16);
+TP.forEach((p,i)=>bdg(p[0],p[1],5,i+1,'#ffd23f'));
+FL.forEach((p,i)=>{fru(p[0]-12,p[1]+26,6,FC[i]);fru(p[0]+10,p[1]+30,6,FC[(i+2)%5]);fru(p[0]+2,p[1]+44,6,FC[(i+4)%5])});
+TP.forEach((p,i)=>{fru(p[0]-14,p[1]+16,7,FC[(i+1)%5]);fru(p[0]+14,p[1]+14,7,FC[(i+3)%5])});
+fru(200,205,7,'#ff7a1a');
+const S=[...document.querySelectorAll('.sl')],sun=document.getElementById('sun');let cur=0;
+function go(n){cur=Math.max(0,Math.min(S.length-1,n));
+S.forEach((s,i)=>s.classList.toggle('act',i===cur));
+[...dots.children].forEach((d,i)=>d.classList.toggle('on',i===cur));
+const st=D[cur].st;let k=0;
+document.querySelectorAll('#T [data-s]').forEach(e=>{const on=+e.dataset.s<=st;e.style.transitionDelay=on?(.7+k++*.045)+'s':'0s';e.classList.toggle('on',on)});
+sun.style.transform=`translateY(${-cur*46}px)`;camTo(cur);
+pv.disabled=cur===0;nx.disabled=cur===S.length-1}
+pv.onclick=()=>go(cur-1);nx.onclick=()=>go(cur+1);
+addEventListener('keydown',e=>{if(md.classList.contains('o'))return;if(e.key==='ArrowRight'||e.key===' ')go(cur+1);if(e.key==='ArrowLeft')go(cur-1)});
+let x0=null;addEventListener('touchstart',e=>x0=md.classList.contains('o')?null:e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>60)go(cur+(d<0?1:-1));x0=null});
+const CM=[[200,505,1.9],[200,450,1.8],[200,360,1.4],[200,185,1.75],[200,200,1.5],[315,395,1.9],[100,330,1.8],[200,330,1.15],[200,260,1.2],[200,310,1],[200,310,.95],[200,320,.9]];
+const camTo=i=>{const[x,y,z]=CM[i];document.getElementById('cam').style.transform=`translate(200px,310px) scale(${z}) translate(${-x}px,${-y}px)`};
+camTo(0);
+document.getElementById('start').onclick=()=>{document.getElementById('intro').classList.add('x');document.body.classList.add('on');go(0)};
+const SM=[
+{t:'Un candidato recorre el árbol',s:[['📣','Atracción: la empresa muestra su cultura en redes y gana fama de buen lugar para trabajar.'],['📝','Reclutamiento: se abre la vacante de “Asesor de servicio” y llegan 48 hojas de vida.'],{q:'¿Qué sigue con esas 48 candidaturas?',o:['Contratar a la primera','Seleccionar con entrevistas y pruebas','Hacer la inducción'],a:1,f:'Correcto: la selección filtra y elige el mejor ajuste.'},['🤝','Selección: tras entrevistas y pruebas queda Ana como finalista.'],['🎉','Onboarding: Ana tiene mentor, recorre la oficina y conoce a su equipo.'],['📘','Inducción: recibe información de la empresa, su puesto y las normas.']]},
+{t:'¿Por qué capacitar? Caso Tienda Madroño',s:[['📉','Las quejas por mala atención suben 30% en un trimestre.'],{q:'¿Capacitar es un gasto o una inversión estratégica?',o:['Un gasto','Una inversión alineada a objetivos'],a:1,f:'Así es: liga la formación con los resultados del negocio.'},['🎯','La gerencia fija la meta: bajar las quejas a la mitad en seis meses.'],['🔁','Se planea un ciclo completo, no un curso suelto.']]},
+{t:'Las 4 fases en acción',s:[['🔍','Fase 1 · DNC: llegan quejas por mala atención. Antes de organizar un curso se pregunta: ¿de verdad es falta de capacitación o fallan la organización, los recursos o los procesos?'],{q:'Antes de capacitar, lo primero es…',o:['Contratar un instructor','Detectar si la necesidad es realmente de capacitación','Evaluar resultados'],a:1,f:'Eso es la DNC: capacitar sobre una necesidad concreta.'},['🧩','Fase 2 · Diseño: objetivos, contenidos, participantes, métodos, recursos y tiempo.'],{q:'Si el problema es usar un programa nuevo, conviene…',o:['Solo teoría','Actividades prácticas con el programa'],a:1,f:'El diseño debe responder a la necesidad detectada.'},['🎬','Fase 3 · Ejecución: instructora interna, materiales listos y ejemplos reales del trabajo.'],['📊','Fase 4 · Evaluación: se revisa si hubo aprendizaje y cambios en el desempeño; surgen nuevas necesidades y el ciclo reinicia.']]},
+{t:'Kirkpatrick con un curso de ventas',s:[['😀','Nivel 1 · Reacción: lo califican interesante y útil; se revisan materiales, sala y facilitador.'],['🧠','Nivel 2 · Aprendizaje: el pre-test marca 62 y el post-test 88.'],{q:'Que usen el guion en llamadas reales corresponde al nivel…',o:['2 Aprendizaje','3 Comportamiento','4 Resultados'],a:1,f:'Es la transferencia del aprendizaje al puesto.'},['📈','Nivel 4 · Resultados: bajan los errores y sube la satisfacción del cliente.'],{q:'Según Kirkpatrick, ¿cuándo se define el resultado esperado?',o:['Al final del curso','Antes de diseñarlo: el fin es el principio'],a:1,f:'Por eso el ROE es el indicador final de valor.'}]},
+{t:'Medir como Chiavenato',s:[['🏢','Organizacional: mejoran la productividad, la imagen y el clima organizacional.'],{q:'Menos rotación y ausentismo se mide a nivel…',o:['Organizacional','Recursos humanos','De las tareas'],a:1,f:'Es el nivel de recursos humanos.'},['👥','Recursos humanos: sube la motivación, el compromiso y el sentido de pertenencia.'],{q:'Menos errores, reprocesos y accidentes se mide a nivel…',o:['De las tareas','Organizacional'],a:0,f:'Son mejoras directas en el trabajo diario.'},['📝','Se comprueba con exámenes antes y después, supervisión directa y evaluación del desempeño.']]},
+{t:'Clasifica estas capacitaciones',s:[{q:'Una conferencia para transmitir información es una técnica orientada al…',o:['Contenido','Proceso'],a:0,f:'Transmite conocimientos o información.'},{q:'El role-playing para mejorar habilidades sociales es una técnica orientada al…',o:['Contenido','Proceso'],a:1,f:'Busca modificar actitudes y habilidades interpersonales.'},{q:'Un estudio de caso con juego gerencial es una técnica…',o:['Mixta','De contenido'],a:0,f:'Combina información y práctica.'},{q:'La inducción antes de empezar a trabajar es, según el tiempo, capacitación…',o:['Antes del ingreso','Después del ingreso'],a:0,f:'Integra al colaborador a la cultura y las normas.'},{q:'Aprender mientras se trabaja es capacitación…',o:['Fuera del puesto','En el puesto (on the job)'],a:1,f:'Es la forma más común y muy práctica.'}]},
+{t:'Elige la modalidad en línea',s:[{q:'Un equipo en 3 países necesita clase en vivo con preguntas. Conviene…',o:['Sincrónica','Asincrónica'],a:0,f:'Sincrónica: tiempo real.'},{q:'Turnos rotativos que aprenden a su ritmo…',o:['Sincrónica','Asincrónica'],a:1,f:'Asincrónica: cada quien cuando puede.'},{q:'Teoría en línea y práctica presencial es…',o:['B-learning','Webinar'],a:0,f:'Es la mezcla de ambos mundos.'},['⚖️','Ventaja: sin traslados y escalable. Desventaja: exige autodisciplina y buena conexión.']]},
+{t:'Promociones, traslados y carrera',s:[['🧑‍💼','Un asistente pasa a supervisor: es una promoción.'],{q:'Pasar de ventas a atención al cliente con el mismo nivel de responsabilidad es…',o:['Promoción','Traslado'],a:1,f:'Cambia de área, sin ascenso.'},['🗺️','Plan de carrera: se ve la situación actual, las oportunidades, las acciones de desarrollo y el seguimiento.'],['🔑','Sucesión: se identifican puestos clave y personas con potencial en el mapa de talento.'],{q:'Si las promociones se perciben como favoritismo, el clima…',o:['Mejora','Se deteriora'],a:1,f:'Hacen falta criterios claros y transparentes.'},['💚','Resultado: más motivación, retención y mejor clima.']]},
+{t:'Tendencias en juego',s:[['⏱️','Microlearning: una cápsula de 5 minutos sobre manejo de reclamos.'],{q:'¿Qué sube el compromiso con insignias y rankings?',o:['Gamificación','Realidad aumentada'],a:0,f:'Es la gamificación.'},{q:'Una IA ajusta tu ruta según tu avance. Es…',o:['IA adaptativa','Aprendizaje social'],a:0,f:'IA adaptativa: contenido a tu medida.'},['🥽','Con realidad virtual practicas atender a un cliente enojado, sin riesgos.']]},
+{t:'Nace la universidad corporativa',s:[['🏫','La empresa crea su universidad con rutas de liderazgo y técnicas.'],{q:'La diferencia clave con la capacitación tradicional es…',o:['Cursos aislados y reactivos','Enfoque estratégico y permanente'],a:1,f:'Alinea el aprendizaje con el negocio.'},['🚀','Reskilling y upskilling mantienen al talento listo para el cambio.']]}
+];
+let cs,si,sc,tok=0,L,F,wt=ms=>new Promise(r=>setTimeout(r,ms));
+const mdEl=document.getElementById('md'),mb=document.getElementById('mb');
+function cls(){tok++;mdEl.classList.remove('o')}
+function sim(i){cs=SM[i];cs.s.forEach(x=>delete x.d);si=0;sc=0;mb.style.width='';mdEl.classList.add('o');rd()}
+function rd(){let h=`<button class="x">✕</button><h3>${cs.t} <em>⭐ ${sc}</em></h3><div class="pr"><i style="width:${(si+1)/cs.s.length*100}%"></i></div>`;
+cs.s.slice(0,si+1).forEach((x,j)=>{if(Array.isArray(x))h+=`<div class="sp"><span>${x[0]}</span><span>${x[1]}</span></div>`;else h+=`<div class="sp q"><b>${x.q}</b>`+x.o.map((o,k)=>`<button class="op ${x.d!==undefined?(k==x.a?'ok':k==x.d?'no':''):''}" data-j="${j}" data-k="${k}">${o}</button>`).join('')+(x.d!==undefined?`<p>${x.f}</p>`:'')+'</div>'});
+const l=cs.s[si],wait=!Array.isArray(l)&&l.d===undefined;
+if(!wait)h+=si<cs.s.length-1?'<button class="bt" id="nxs">Siguiente paso ▶</button>':`<p class="fin">🏁 ¡Simulación completa! ${sc} puntos</p><button class="bt" id="cl2">Cerrar</button>`;
+mb.innerHTML=h;mb.scrollTop=mb.scrollHeight}
+const MS=[['📋','Requisición','Un área detecta la vacante y pide aprobación y presupuesto.'],['🧭','Perfil del cargo','Se define el perfil: funciones, competencias y requisitos.'],['🧲','Atracción','Marca empleadora y fuentes: internas (promociones, referidos) y externas (portales, redes, universidades).'],['📣','Convocatoria','Se publica la vacante y se reciben las hojas de vida.'],['🔎','Preselección','Se filtran los CV contra el perfil y se llama a los mejores.'],['🎤','Selección','Entrevistas, pruebas y verificación de referencias.'],['✍️','Oferta','Se decide, se negocia y se firma el contrato.'],['🌱','Onboarding e inducción','Mentor, bienvenida y normas en los primeros 90 días. Aquí empieza la capacitación.'],
+['🔍','Detección de necesidades','Fase 1 · Se analizan la organización, los recursos humanos y las tareas: qué, quién, por qué y cuándo.'],['🧩','Diseño del programa','Fase 2 · Objetivos, contenidos, participantes, métodos, recursos y tiempo.'],['🎬','Ejecución','Fase 3 · Aspectos pedagógicos, administrativos y técnicos, con instructores internos o externos.'],['📊','Evaluación','Fase 4 · Kirkpatrick (reacción, aprendizaje, comportamiento y resultados) y los tres niveles de Chiavenato.'],['🚀','Desarrollo y carrera','Planes de carrera y sucesión y mapa de talento: lo aprendido alimenta el siguiente ciclo y retiene al talento.']];
+function mapa(){mb.style.width='min(980px,96vw)';mdEl.classList.add('o');
+mb.innerHTML=`<button class="x">✕</button><h3>Del reclutamiento a la capacitación: el mapa del talento</h3><svg id="mp" viewBox="0 0 800 520" style="width:100%;max-height:60vh;display:block;background:linear-gradient(#134e5a,#1f8f7a);border-radius:14px"><path id="rt" d="M50 460C170 490 270 410 380 445S600 490 700 420C780 365 730 300 640 300S470 250 380 285S200 320 120 270C50 225 70 160 150 140S300 120 400 115S600 60 700 70" fill="none" stroke="#ffd23f" stroke-width="5" stroke-dasharray="2 12" stroke-linecap="round"/></svg><div class="sp" id="mc"><span>🗺️</span><span>Toca una estación o recorre el mapa.</span></div><button class="bt" id="wk">Recorrer el mapa ▶</button>`;
+const mp=document.getElementById('mp'),rt=document.getElementById('rt'),n=MS.length;L=rt.getTotalLength();F=MS.map((_,i)=>.03+.94*i/(n-1));
+const P=F.map(f=>rt.getPointAtLength(L*f));
+let g='<text x="16" y="26" font-size="13" font-weight="800" fill="#ffa13d">● Reclutamiento</text><text x="16" y="46" font-size="13" font-weight="800" fill="#7ee081">● Capacitación</text>';
+g+=[[120,360],[560,380],[300,200],[760,230],[60,300],[220,60],[520,170],[460,360],[740,130],[600,230]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="15" fill="#0c5e33"/><circle cx="${x+5}" cy="${y-3}" r="3" fill="#fff"/><circle cx="${x-5}" cy="${y+4}" r="3" fill="#fff"/>`).join('');
+const a=P[11],b=P[8];g+=`<path d="M${a.x} ${a.y} Q${(a.x+b.x)/2} ${Math.min(a.y,b.y)-90} ${b.x} ${b.y}" fill="none" stroke="#ff5c8a" stroke-width="3" stroke-dasharray="6 6"/><text x="${(a.x+b.x)/2}" y="${Math.min(a.y,b.y)-52}" text-anchor="middle" font-size="12" font-weight="800" fill="#ff9bb9">↺ cada evaluación reinicia el ciclo</text>`;
+g+=MS.map((m,i)=>{const p=P[i],dy=i%2?-32:42,c=i<8?C[i%5]:'#7ee081';return `<g class="sn" data-i="${i}"><circle cx="${p.x}" cy="${p.y}" r="22" fill="${c}" stroke="#fff" stroke-width="3"/><text x="${p.x}" y="${p.y+7}" text-anchor="middle" font-size="20">${m[0]}</text><text x="${p.x}" y="${p.y+dy}" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">${i+1}. ${m[1]}</text></g>`}).join('');
+g+='<text id="tv" font-size="26" x="38" y="434">🧑‍💼</text>';mp.insertAdjacentHTML('beforeend',g)}
+function show(i){const m=MS[i];document.getElementById('mc').innerHTML=`<span>${m[0]}</span><span><b>${i+1}. ${m[1]}.</b> ${m[2]}</span>`;document.querySelectorAll('.sn circle').forEach((c,k)=>c.setAttribute('r',k==i?29:22))}
+async function walk(){const t=++tok,rt=document.getElementById('rt'),tv=document.getElementById('tv');
+for(let i=0;i<MS.length;i++){const a=i?F[i-1]:0,b=F[i],t0=performance.now();
+await new Promise(r=>{const f=n=>{if(t!==tok)return r();const u=Math.min(1,(n-t0)/1100),p=rt.getPointAtLength(L*(a+(b-a)*u));tv.setAttribute('x',p.x-13);tv.setAttribute('y',p.y-26);u<1?requestAnimationFrame(f):r()};requestAnimationFrame(f)});
+if(t!==tok)return;show(i);await wt(2300);if(t!==tok)return}}
+mdEl.onclick=e=>{const t=e.target,o=t.closest('.op'),n=t.closest('.sn');
+if(o){const x=cs.s[+o.dataset.j];if(x.d===undefined){x.d=+o.dataset.k;if(x.d==x.a)sc+=10;rd()}}
+else if(t.id==='nxs'){si++;rd()}
+else if(t.classList.contains('x')||t.id==='cl2'||t===mdEl)cls();
+else if(n){tok++;show(+n.dataset.i)}
+else if(t.id==='wk')walk()};
+</script></body></html>
