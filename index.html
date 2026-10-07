@@ -66,6 +66,8 @@ svg.st{width:100%;height:34vh}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style></head><body>
 
+<audio id="bgm" src="./Adopt%20Me%21%20-%20Roblox%20Music%20%28Day%20Theme%29.mp3" loop preload="auto"></audio>
+
 <svg class="st" viewBox="0 0 400 620" preserveAspectRatio="xMidYMax meet" aria-label="Madroño que crece y se mece con cada diapositiva">
 <defs>
 <path id="L" d="M-14 0Q0 -8 14 0Q0 8 -14 0Z"/>
@@ -157,7 +159,7 @@ addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].
 const CM=[[200,505,1.9],[200,450,1.8],[200,360,1.4],[200,185,1.75],[200,200,1.5],[315,395,1.9],[100,330,1.8],[200,330,1.15],[200,260,1.2],[200,310,1],[200,310,.95],[200,320,.9]];
 const camTo=i=>{const[x,y,z]=CM[i];document.getElementById('cam').style.transform=`translate(200px,310px) scale(${z}) translate(${-x}px,${-y}px)`};
 camTo(0);
-document.getElementById('start').onclick=()=>{document.getElementById('intro').classList.add('x');document.body.classList.add('on');go(0)};
+document.getElementById('start').onclick=()=>{const music=document.getElementById('bgm');music.volume=.25;music.play().catch(()=>{});document.getElementById('intro').classList.add('x');document.body.classList.add('on');go(0)};
 const SM=[
 {t:'Un candidato recorre el árbol',s:[['📣','Atracción: la empresa muestra su cultura en redes y gana fama de buen lugar para trabajar.'],['📝','Reclutamiento: se abre la vacante de “Asesor de servicio” y llegan 48 hojas de vida.'],{q:'¿Qué sigue con esas 48 candidaturas?',o:['Contratar a la primera','Seleccionar con entrevistas y pruebas','Hacer la inducción'],a:1,f:'Correcto: la selección filtra y elige el mejor ajuste.'},['🤝','Selección: tras entrevistas y pruebas queda Ana como finalista.'],['🎉','Onboarding: Ana tiene mentor, recorre la oficina y conoce a su equipo.'],['📘','Inducción: recibe información de la empresa, su puesto y las normas.']]},
 {t:'¿Por qué capacitar? Caso Tienda Madroño',s:[['📉','Las quejas por mala atención suben 30% en un trimestre.'],{q:'¿Capacitar es un gasto o una inversión estratégica?',o:['Un gasto','Una inversión alineada a objetivos'],a:1,f:'Así es: liga la formación con los resultados del negocio.'},['🎯','La gerencia fija la meta: bajar las quejas a la mitad en seis meses.'],['🔁','Se planea un ciclo completo, no un curso suelto.']]},
